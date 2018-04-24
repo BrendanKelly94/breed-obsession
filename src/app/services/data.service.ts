@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams, Headers, Jsonp} from '@angular/http';
-
+import * as process from 'process';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataService {
-  petKey:string = process.env.PetFinderKey;
-  citiesKey:string = process.env.WorldCities;
+  petKey:string;
+  citiesKey:string;
   selectedBreed:string;
   selectedAnimal:string;
   selectedState:string;
@@ -14,11 +14,19 @@ export class DataService {
   selectedSize:string;
   selectedSex:string;
   selectedAge:string;
-  constructor(public jsonp:Jsonp, public http:Http) { }
+  constructor(public jsonp:Jsonp, public http:Http) {
+    http.get('/keys')
+    .map(res => res.json())
+    .subscribe(keys => {
+      this.petKey = keys.petFinder;
+      this.citiesKey = keys.cities;
+      console.log(keys);
+    })
+  }
 
   getBreeds(animal){
     this.selectedAnimal = animal;
-    return this.jsonp.get("http://api.petfinder.com/breed.list?key=" + this.petKey + "&animal="+ animal + "&format=json&callback=JSONP_CALLBACK")
+    return this.jsonp.get("https://api.petfinder.com/breed.list?key=" + this.petKey + "&animal="+ animal + "&format=json&callback=JSONP_CALLBACK")
       .map(res => res.json());
   }
 
