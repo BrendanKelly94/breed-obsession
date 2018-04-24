@@ -1,0 +1,76 @@
+<div *ngIf = "postings.length > 0; else loading" class = "container" id = "post-container">
+
+<div class = "row">
+  <button id = "back" class = "btn" (click) = "back()">Back</button>
+</div>
+
+<div *ngFor = "let post of postings; let i = index" class = "container row posts">
+  <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <img src={{post.thumbnail}} alt = "thumbnail">
+  </div>
+
+  <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+    <div class = "row details">
+        <p class = "name">{{post.name}}</p>
+        <p> <b>Status:</b> {{post.status}} </p>
+        <p> <b>Age:</b> {{post.age}} </p>
+        <p> <b>Sex:</b> {{post.sex}} </p>
+        <p> <b>Breed:</b> {{post.breed}} </p>
+        <p> <b>Location:</b> {{post.city}} , {{post.state}} </p>
+      <button class = "btn btn-lg btn-outline-primary modal-button" (click) = "open(modal,i)">View</button>
+    </div>
+  </div>
+</div>
+
+<div class = "row container">
+  <div *ngIf = "(offset - count) != 0" class = "col-lg-6" id = "back-button">
+    <button class = "btn" (click) = "changePage(false)"> back </button>
+  </div>
+  <div *ngIf = "postings.length == count" class = "col-lg-6" id = "next-button">
+    <button class = "btn" (click) = "changePage(true)"> next </button>
+  </div>
+</div>
+
+</div>
+
+<!--Templates -->
+
+<ng-template #loading>
+  <div>
+    <img src = "../.././assets/loading.gif" id = "loading">
+  </div>
+</ng-template>
+
+<ng-template #modal let-c = "close" let-d = "dismiss">
+  <div class = "modal-header">
+    <h4 class = "modal-title">{{selectedPost.name}}</h4>
+    <button type = "button" class = "close" aria-label = "Close" (click) = "d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class = "modal-body">
+
+      <div class = "row container">
+        <ngb-carousel>
+          <ng-template *ngFor = "let pic of carouselPics" ngbSlide>
+            <img alt = "slide" class = "modalImg" src={{pic.$t}}>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+      <div class = "row container modal-details">
+          <p> <b>Status:</b> {{selectedPost.status}} </p>
+          <p> <b>Age:</b> {{selectedPost.age}} </p>
+          <p> <b>Sex:</b> {{selectedPost.sex}} <p>
+          <p> <b>Breed:</b> {{selectedPost.breed}} </p>
+          <p> <b>Location:</b> {{selectedPost.city}} , {{selectedPost.state}} </p>
+          <b>Contact:</b>
+      </div>
+
+    <div class = "row container">
+      {{selectedPost.description}}
+    </div>
+  </div>
+  <div class = "modal-footer">
+    <button type = "button" class = "btn btn-outline-dark" (click) = "c('Close click')">Close</button>
+  </div>
+</ng-template>
