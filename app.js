@@ -12,7 +12,7 @@ let PET_KEY = '';
 let CITY_KEY = '';
 
 app.use(express.static(path.join(__dirname, 'dist')));
-
+console.log(process.env.API_KEY);
 //GET CONFIG VAR FROM SPECIFIC HEROKU APP
 heroku.request({
   method: 'GET',
