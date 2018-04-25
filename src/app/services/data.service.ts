@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams, Headers, Jsonp} from '@angular/http';
-import * as process from 'process';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -18,8 +17,6 @@ export class DataService {
     http.get('/keys')
     .map(res => res.json())
     .subscribe(keys => {
-      this.petKey = keys.petFinder;
-      this.citiesKey = keys.cities;
       console.log(keys);
     })
   }

@@ -8,7 +8,8 @@ const heroku = new Heroku({ token: process.env.API_TOKEN })
 const environment = process.env.NODE_ENV || 'development';
 const app = express();
 
-let TOKEN = '';
+let PET_KEY = '';
+let CITY_KEY = '';
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -23,7 +24,8 @@ heroku.request({
   parseJSON: true
 }).then(response => {
   console.log(response.API_KEY, "heroku api from server");
-  TOKEN = response.TOKEN;
+  PET_KEY = response.PET_FINDER_KEY;
+  CITY_KEY = response.WORLD_CITIES_KEY;
 })
 
 app.get('*', (req, res) => {
@@ -31,8 +33,7 @@ app.get('*', (req, res) => {
 })
 
 app.get('/keys', (req, res) => {
-  res.json(TOKEN);
-       res.end();
+  res.json({petKey: PET_KEY, cityKey: CITY_KEY});
 });
 
 const port = process.env.PORT || '3001';
