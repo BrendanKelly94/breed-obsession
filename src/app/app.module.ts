@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PostingsComponent } from './components/postings/postings.component';
 
 import {DataService} from './services/data.service';
-import { NavbarComponent } from './navbar/navbar.component';
+
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -21,8 +21,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PostingsComponent,
-    NavbarComponent
+    PostingsComponent
   ],
   imports: [
     NgbModule.forRoot(),
