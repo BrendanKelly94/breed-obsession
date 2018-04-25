@@ -5,7 +5,7 @@
 
 
 <div *ngFor = "let post of postings; let i = index" class = "container row posts">
-  <div *ngIf = "{{post.thumbnail}}; else default-img"class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
+  <div *ngIf = "post.thumbnail; else default-img"class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <img src={{post.thumbnail}} alt = "thumbnail">
   </div>
 
