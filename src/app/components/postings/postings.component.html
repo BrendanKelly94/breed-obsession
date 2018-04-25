@@ -1,11 +1,11 @@
 <div *ngIf = "postings.length > 0; else loading" class = "container" id = "post-container">
 
-<div class = "row">
-  <button id = "back" class = "btn" (click) = "back()">Back</button>
-</div>
+
+<button id = "back" class = "btn" (click) = "back()">Back</button>
+
 
 <div *ngFor = "let post of postings; let i = index" class = "container row posts">
-  <div class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
+  <div *ngIf = "{{post.thumbnail}}; else default-img"class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <img src={{post.thumbnail}} alt = "thumbnail">
   </div>
 
@@ -41,6 +41,10 @@
   </div>
 </ng-template>
 
+<ng-template #default-img>
+    <img src = "../.././assets/default.gif" id = "default-img">
+</ng-template>
+
 <ng-template #modal let-c = "close" let-d = "dismiss">
   <div class = "modal-header">
     <h4 class = "modal-title">{{selectedPost.name}}</h4>
@@ -63,7 +67,8 @@
           <p> <b>Sex:</b> {{selectedPost.sex}} <p>
           <p> <b>Breed:</b> {{selectedPost.breed}} </p>
           <p> <b>Location:</b> {{selectedPost.city}} , {{selectedPost.state}} </p>
-          <b>Contact:</b>
+          <p> <b>Email:</b> {{selectedPost.email}} </p>
+          <p> <b>Phone:</b> {{selectedPost.phone}} </p>
       </div>
 
     <div class = "row container">

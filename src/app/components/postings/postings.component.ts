@@ -77,6 +77,8 @@ export class PostingsComponent implements OnInit {
       status: element.status["$t"],
       thumbnail: (element.media.photos)?element.media.photos.photo[2].$t:null,
       pics: (element.media.photos)?element.media.photos.photo:null,
+      phone: (element.contact.phone)? element.contact.phone["$t"]: "not available",
+      email: (element.contact.email)? element.contact.email["$t"]: "not available",
       description: element.description["$t"],
       contact: contact
     }
@@ -86,7 +88,11 @@ export class PostingsComponent implements OnInit {
 
   open(modal,i) {
       this.selectedPost = this.postings[i];
-      this.carouselPics = this.selectedPost.pics.filter(pic => pic["@size"] === "x");
+      if(this.selectedPost.thumbnail){
+        this.carouselPics = this.selectedPost.pics.filter(pic => pic["@size"] === "x");
+      }else{
+        this.carouselPics = null;
+      }
       this.modalService.open(modal, {
          size: 'lg', backdrop: 'static',windowClass:'custom-modal animated slideInUp'
       });
@@ -109,6 +115,8 @@ interface Posting{
   status:string,
   thumbnail:string,
   pics:string[],
+  phone:string,
+  email:string,
   description:string,
   contact:Address
 

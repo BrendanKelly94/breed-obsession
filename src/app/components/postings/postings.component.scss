@@ -31,23 +31,23 @@ $big-desktop-img-size:400px;
 p.name{
 
     @include for-phone-only{
-      font-size: 18px;
+      font-size: 18px !important;
       font-weight:600;
     }
     @include for-tablet-portrait-up{
-      font-size: 22px;
+      font-size: 22px !important;
       font-weight:600;
     }
     @include for-tablet-landscape-up{
-      font-size: 24px;
+      font-size: 24px !important;
       font-weight:600;
     }
     @include for-desktop-up {
-      font-size: 26px;
+      font-size: 26px !important;
       font-weight:600;
     }
     @include for-big-desktop-up{
-      font-size:30px;
+      font-size:30px !important;
       font-weight:600;
     }
 
@@ -231,4 +231,45 @@ ul{
 
 .custom-modal .modal-lg {
     max-width: 90%;
+}
+
+#back{
+  position: fixed;
+  left: 2%;
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+  &:hover{
+    background-color: #fff;
+    color:#000;
+  }
+}
+
+#next-button{
+  margin-top: 2%;
+    margin-bottom: 2%;
+    float:right;
+    button{
+      color: #fff;
+      background-color:transparent;
+      border-color:#fff;
+      &:hover{
+        background-color: #fff;
+        color:#000;
+      }
+    }
+}
+
+#back-button{
+  margin-top: 2%;
+    margin-bottom: 2%;
+    button{
+      color: #fff;
+      background-color:transparent;
+      border-color:#fff;
+      &:hover{
+        background-color: #fff;
+        color:#000;
+      }
+    }
 }

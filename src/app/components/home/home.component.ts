@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
       breeds.petfinder.breeds.breed.forEach(element => {
         this.breeds.push(element["$t"]);
       });
-      console.log(this.breeds);
     });
 
   }
