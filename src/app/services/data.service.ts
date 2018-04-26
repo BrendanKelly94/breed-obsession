@@ -15,13 +15,13 @@ export class DataService {
   selectedAge:string;
   constructor(public jsonp:Jsonp, public http:Http) {
     console.log("constructing");
-    http.get('/keys')
-    .map(res => res.json())
-    .subscribe(keys => {
-      console.log(keys);
-      this.petKey = keys.petKey;
-      this.citiesKey = keys.cityKey;
-    })
+    // http.get('/keys')
+    // .map(res => res.json())
+    // .subscribe(keys => {
+    //   console.log(keys);
+    //   this.petKey = keys.petKey;
+    //   this.citiesKey = keys.cityKey;
+    // })
   }
 
   getBreeds(animal){
