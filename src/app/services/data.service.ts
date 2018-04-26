@@ -18,6 +18,7 @@ export class DataService {
     http.get('/keys')
     .map(res => res.json())
     .subscribe(keys => {
+      console.log(keys);
       this.petKey = keys.petKey;
       this.citiesKey = keys.cityKey;
     })
