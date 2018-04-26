@@ -16,9 +16,7 @@ export class DataService {
   constructor(public jsonp:Jsonp, public http:Http) {
     console.log("constructing");
     fetch('/keys')
-    .then(res => {
-      res.json();
-    })
+    .then(res => res.json())
     .then(keys => {
       console.log(keys);
     })
