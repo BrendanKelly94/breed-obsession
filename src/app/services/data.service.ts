@@ -14,11 +14,6 @@ export class DataService {
   selectedSex:string;
   selectedAge:string;
   constructor(public jsonp:Jsonp, public http:Http) {
-    http.get('/keys')
-    .map(res => res.json())
-    .subscribe(keys => {
-      console.log(keys);
-    })
   }
 
   getBreeds(animal){
@@ -47,7 +42,7 @@ export class DataService {
 
   getPostings(offset){
     let params = new URLSearchParams();
-    params.set("key","fcbbfb9b3a0372fad9abf77cf315444b");
+    params.set("key",this.petKey);
     params.set("format","json");
     params.set("callback","JSONP_CALLBACK");
     params.set("breed",this.selectedBreed);
