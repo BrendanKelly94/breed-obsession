@@ -17,7 +17,7 @@ app.get('*', (req, res) => {
 })
 
 app.get('/keys', (req, res) => {
-  res.send({petKey: "testKey", cityKey: "testKey"});
+  res.json({petKey: "testKey", cityKey: "testKey"});
 });
 
 const port = process.env.PORT || '3001';
