@@ -19,7 +19,7 @@ export class DataService {
     .then(res => res.json())
     .then(keys => {
       this.petKey = keys.petKey;
-      this.citieskey = keys.cityKey;
+      this.citiesKey = keys.cityKey;
     })
   }
 
