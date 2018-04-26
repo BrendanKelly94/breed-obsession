@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 console.log(process.env.PET_FINDER_KEY, process.env.WORLD_CITIES_KEY);
 //GET CONFIG VAR FROM SPECIFIC HEROKU APP
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 })
 
