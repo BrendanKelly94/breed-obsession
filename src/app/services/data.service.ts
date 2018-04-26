@@ -18,7 +18,8 @@ export class DataService {
     fetch('/keys')
     .then(res => res.json())
     .then(keys => {
-      console.log(keys);
+      this.petKey = keys.petKey;
+      this.citieskey = keys.cityKey;
     })
   }
 
