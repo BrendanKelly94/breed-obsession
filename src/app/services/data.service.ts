@@ -59,7 +59,7 @@ export class DataService {
     params.set("offset", offset);
     (this.selectedCity)?params.set("location",([this.selectedCity,this.selectedState].join())):params.set("location",this.selectedState);
     let options = new RequestOptions({ params: params });
-    return this.jsonp.get("http://api.petfinder.com/pet.find?",options)
+    return this.jsonp.get("https://api.petfinder.com/pet.find?",options)
       .map(res => res.json());
   }
 }
