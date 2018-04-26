@@ -14,12 +14,19 @@ export class DataService {
   selectedSex:string;
   selectedAge:string;
   constructor(public jsonp:Jsonp, public http:Http) {
+    console.log("constructing");
+    http.get('/keys')
+    .map(res => res.json())
+    .subscribe(keys => {
+      this.petKey = keys.petKey;
+      this.citiesKey = keys.cityKey;
+    })
   }
 
   getBreeds(animal){
     this.selectedAnimal = animal;
     return this.jsonp.get("https://api.petfinder.com/breed.list?key=" + this.petKey + "&animal="+ animal + "&format=json&callback=JSONP_CALLBACK")
-      .map(res => res.json());
+    .map(res => res.json());
   }
 
   getCities(state){

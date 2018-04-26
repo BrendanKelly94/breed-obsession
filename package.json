@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "NODE_ENV=production ng serve",
+    "start": "ng serve",
+    "start:dev": "node app.js && ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
