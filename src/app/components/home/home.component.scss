@@ -156,8 +156,8 @@ a{
 
 #advanced-toggle{
   justify-content:center;
-  color: #67f441
   button{
+    color: #67f441;
     margin-top:10px;
     margin-bottom: 10px;
     background-color:transparent;
@@ -177,8 +177,6 @@ a{
 }
 
 footer{
-  position:absolute;
-  bottom:0;
   width:100%;
   div p{
     text-align:center;
