@@ -16,16 +16,16 @@
 
 //fonts
 $phone-font: 12px;
-$tablet-portrait-font: 14px;
-$tablet-landscape-font: 16px;
-$desktop-font: 18px;
+$tablet-portrait-font: 12px;
+$tablet-landscape-font: 13px;
+$desktop-font: 16px;
 $big-desktop-font:20px;
 
 //img sizes
 $phone-img-size:200px;
-$tablet-portrait-img-size: 250px;
-$table-landscape-img-size: 275px;
-$desktop-img-size:300px;
+$tablet-portrait-img-size: 200px;
+$table-landscape-img-size: 200px;
+$desktop-img-size:250px;
 $big-desktop-img-size:400px;
 
 p.name{
@@ -80,7 +80,7 @@ img{
 img.modalImg{
 
   @include for-phone-only{
-    height:200px;
+    height:220px;
   }
   @include for-tablet-portrait-up{
     height:300px;
@@ -170,18 +170,23 @@ ul{
     p{
       @include for-phone-only{
         font-size: $phone-font;
+        margin-bottom: 2px;
       }
       @include for-tablet-portrait-up{
         font-size: $tablet-portrait-font;
+        margin-bottom: 3px;
       }
       @include for-tablet-landscape-up{
         font-size: $tablet-landscape-font;
+        margin-bottom: 5px;
       }
       @include for-desktop-up {
-        height: $desktop-font;
+        font-size: $desktop-font;
+        margin-bottom: 7px;
       }
       @include for-big-desktop-up{
-        height: $big-desktop-font;
+        font-size: $big-desktop-font;
+        margin-bottom: 10px;
       }
     }
 
@@ -239,6 +244,9 @@ ul{
   background-color: transparent;
   border-color: #fff;
   color: #fff;
+  @include for-phone-only{
+    position: absolute;
+  }
   &:hover{
     background-color: #fff;
     color:#000;
@@ -272,4 +280,9 @@ ul{
         color:#000;
       }
     }
+}
+
+footer{
+  position:absolute;
+  bottom:0;
 }
