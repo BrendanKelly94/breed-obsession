@@ -1,8 +1,8 @@
 <div *ngIf = "postings.length > 0; else loading" class = "container" id = "post-container">
 
-
-<button id = "back" class = "btn" (click) = "back()">Back</button>
-
+<div>
+  <button id = "back" class = "btn" (click) = "back()">Back</button>
+</div>
 
 <div *ngFor = "let post of postings; let i = index" class = "container row posts">
   <div *ngIf = "post.thumbnail; else defaultImg"class = "col-lg-4 col-md-4 col-sm-4 col-xs-12">
