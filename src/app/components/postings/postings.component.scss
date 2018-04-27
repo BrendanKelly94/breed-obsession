@@ -245,7 +245,9 @@ ul{
   border-color: #fff;
   color: #fff;
   @include for-phone-only{
-    position: absolute;
+    position: unset;
+    margin-left:2%;
+    margin-top:5px;
   }
   &:hover{
     background-color: #fff;
@@ -281,7 +283,9 @@ ul{
       }
     }
 }
-
+footer{
+  width:100%;
+}
 footer div p{
   text-align:center;
 }
