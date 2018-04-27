@@ -1,6 +1,6 @@
-<div>
-  <button id = "back" class = "btn" (click) = "back()">Back</button>
-</div>
+
+<button id = "back" class = "btn" (click) = "back()">Back</button>
+
 <div *ngIf = "postings.length > 0; else loading" class = "container" id = "post-container">
 
 <div *ngFor = "let post of postings; let i = index" class = "container row posts">
@@ -49,7 +49,7 @@
 </ng-template>
 
 <ng-template #defaultImg>
-    <img src = "../.././assets/default.gif" id = "default-img">
+    <img src = "../.././assets/default.png" id = "default-img">
 </ng-template>
 
 <ng-template #modal let-c = "close" let-d = "dismiss">
