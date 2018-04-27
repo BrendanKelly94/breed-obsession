@@ -156,9 +156,12 @@ a{
 
 #advanced-toggle{
   justify-content:center;
-  a{
+  color: #67f441
+  button{
     margin-top:10px;
     margin-bottom: 10px;
+    background-color:transparent;
+    border:none;
   }
 }
 
